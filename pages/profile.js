@@ -16,7 +16,7 @@ const Profile = () => {
   const isLastNameDirty = lastName !== user?.metadata?.lastName;
   const isProfileFormDirty = isFirstNameDirty || isLastNameDirty;
 
-  const updateUserProfile = async e => {
+  const updateUserProfile = async (e) => {
     e.preventDefault();
   };
 
@@ -40,14 +40,14 @@ const Profile = () => {
                   type="text"
                   label="First name"
                   value={firstName}
-                  onChange={e => setFirstName(e.target.value)}
+                  onChange={(e) => setFirstName(e.target.value)}
                   required
                 />
                 <Input
                   type="text"
                   label="Last name"
                   value={lastName}
-                  onChange={e => setLastName(e.target.value)}
+                  onChange={(e) => setLastName(e.target.value)}
                   required
                 />
               </div>

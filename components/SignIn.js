@@ -1,25 +1,26 @@
-import styles from "../styles/components/SignIn.module.css";
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { useSignInEmailPassword } from "@nhost/nextjs";
-import Link from "next/link";
-import Image from "next/image";
-import Input from "./Input";
-import Spinner from "./Spinner";
-import { initAuth } from "nhost";
+import styles from '../styles/components/SignIn.module.css';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { useSignInEmailPassword } from '@nhost/nextjs';
+import Link from 'next/link';
+import Image from 'next/image';
+import Input from './Input';
+import Spinner from './Spinner';
+import { initAuth } from 'nhost';
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const router = useRouter();
 
   initAuth({
-    domain: "https://my-nhost-app.nhost.app",
-    providers: ["github"],
-    clientId: "6d122c5060db3c1a7db3",
-    clientSecret: "YOUfe4d2d5612f4c25aa79edb98c685e09464c2b721R_GITHUB_CLIENT_SECRET",
-    redirectUri: "http://localhost:3000/",
+    domain: 'https://my-nhost-app.nhost.app',
+    providers: ['github'],
+    clientId: '6d122c5060db3c1a7db3',
+    clientSecret:
+      'YOUfe4d2d5612f4c25aa79edb98c685e09464c2b721R_GITHUB_CLIENT_SECRET',
+    redirectUri: 'http://localhost:3000/',
   });
 
   const {
@@ -37,7 +38,7 @@ const SignIn = () => {
   };
 
   if (isSuccess) {
-    router.push("/");
+    router.push('/');
     return null;
   }
 
@@ -46,12 +47,12 @@ const SignIn = () => {
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <div className={styles["logo-wrapper"]}>
+        <div className={styles['logo-wrapper']}>
           <Image src="/logo.svg" alt="logo" layout="fill" objectFit="contain" />
         </div>
 
         {needsEmailVerification ? (
-          <p className={styles["verification-text"]}>
+          <p className={styles['verification-text']}>
             Please check your mailbox and follow the verification link to verify
             your email.
           </p>
@@ -80,11 +81,11 @@ const SignIn = () => {
                 disabled={disableForm}
                 className={styles.button}
               >
-                {isLoading ? <Spinner size="sm" /> : "Sign in"}
+                {isLoading ? <Spinner size="sm" /> : 'Sign in'}
               </button>
 
               {isError ? (
-                <p className={styles["error-text"]}>{error?.message}</p>
+                <p className={styles['error-text']}>{error?.message}</p>
               ) : null}
             </form>
           </>
@@ -92,7 +93,7 @@ const SignIn = () => {
       </div>
 
       <p className={styles.text}>
-        No account yet?{" "}
+        No account yet?{' '}
         <Link href="/sign-up">
           <a className={styles.link}>Sign up</a>
         </Link>

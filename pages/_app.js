@@ -1,11 +1,11 @@
-import "../styles/globals.css";
-import { Toaster } from "react-hot-toast";
-import { UserProvider } from "../UserProvider";
-import { NhostProvider, NhostClient } from "@nhost/nextjs";
+import '../styles/globals.css';
+import { Toaster } from 'react-hot-toast';
+import { UserProvider } from '../UserProvider';
+import { NhostProvider, NhostClient } from '@nhost/nextjs';
 
 const nhost = new NhostClient({
-  subdomain: process.env.NEXT_PUBLIC_NHOST_SUBDOMAIN || "",
-  region: process.env.NEXT_PUBLIC_NHOST_REGION || "",
+  subdomain: process.env.NEXT_PUBLIC_NHOST_SUBDOMAIN || '',
+  region: process.env.NEXT_PUBLIC_NHOST_REGION || '',
 });
 
 function MyApp({ Component, pageProps }) {
